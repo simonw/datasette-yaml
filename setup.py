@@ -28,7 +28,7 @@ setup(
     version=VERSION,
     packages=["datasette_yaml"],
     entry_points={"datasette": ["yaml = datasette_yaml"]},
-    install_requires=["datasette"],
+    install_requires=["datasette==0.49a0"],
     extras_require={"test": ["pytest", "pytest-asyncio", "httpx", "sqlite-utils"]},
     tests_require=["datasette-yaml[test]"],
 )
