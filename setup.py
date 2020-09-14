@@ -1,7 +1,7 @@
 from setuptools import setup
 import os
 
-VERSION = "0.1a"
+VERSION = "0.1"
 
 
 def get_long_description():
@@ -28,7 +28,7 @@ setup(
     version=VERSION,
     packages=["datasette_yaml"],
     entry_points={"datasette": ["yaml = datasette_yaml"]},
-    install_requires=["datasette==0.49a0"],
+    install_requires=["datasette>=0.49"],
     extras_require={"test": ["pytest", "pytest-asyncio", "httpx", "sqlite-utils"]},
     tests_require=["datasette-yaml[test]"],
 )

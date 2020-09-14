@@ -20,15 +20,21 @@ async def test_datasette_yaml(tmp_path_factory):
     db_directory = tmp_path_factory.mktemp("dbs")
     db_path = db_directory / "test.db"
     db = sqlite_utils.Database(db_path)
-    db["dogs"].insert_all([
-        {"id": 1, "name": "Cleo", "age": 5, "weight": 48.4},
-        {"id": 2, "name": "Pancakes", "age": 4, "weight": 33.2}
-    ], pk="id")
+    db["dogs"].insert_all(
+        [
+            {"id": 1, "name": "Cleo", "age": 5, "weight": 48.4},
+            {"id": 2, "name": "Pancakes", "age": 4, "weight": 33.2},
+        ],
+        pk="id",
+    )
     app = Datasette([str(db_path)]).app()
     async with httpx.AsyncClient(app=app) as client:
         response = await client.get("http://localhost/test/dogs.yaml")
         assert response.status_code == 200
-        assert response.text.strip() == textwrap.dedent("""
+        assert (
+            response.text.strip()
+            == textwrap.dedent(
+                """
         - id: 1
           name: Cleo
           age: 5
@@ -37,4 +43,6 @@ async def test_datasette_yaml(tmp_path_factory):
           name: Pancakes
           age: 4
           weight: 33.2
-        """).strip()
+        """
+            ).strip()
+        )
