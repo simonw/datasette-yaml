@@ -21,7 +21,7 @@ You can also construct these URLs directly: `/dbname/tablename.yaml`
 
 ## Demo
 
-The plugin is running on [covid-19.datasettes.com](https://covid-19.datasettes.co/) - for example [/covid/latest_ny_times_counties_with_populations.yaml](https://covid-19.datasettes.com/covid/latest_ny_times_counties_with_populations.yaml)
+The plugin is running on [covid-19.datasettes.com](https://covid-19.datasettes.com/) - for example [/covid/latest_ny_times_counties_with_populations.yaml](https://covid-19.datasettes.com/covid/latest_ny_times_counties_with_populations.yaml)
 
 ## Development
 
